@@ -1,6 +1,6 @@
 # CriptJS - A text encryptor
 
-## Instalation
+## Installation
 
 ```
 $ npm install cript.js
