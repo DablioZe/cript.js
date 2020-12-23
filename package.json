@@ -1,0 +1,28 @@
+{
+  "name": "cript.js",
+  "version": "1.0.9",
+  "description": "A simple package for encrypting texts.",
+  "main": "cript.min.js",
+  "scripts": {
+    "test": "cript.toCode(\"mykey\", \"Hello World!\", console.log)"
+  },
+  "keywords": [
+    "cript",
+    "cript.js",
+    "criptjs",
+    "encrypting",
+    "code",
+    "text",
+    "word"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DablioZe/cript.js.git"
+  },
+  "author": "dablioze",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DablioZe/cript.js/issues"
+  },
+  "homepage": "https://github.com/DablioZe/cript.js#readme"
+}
