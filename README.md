@@ -1,6 +1,7 @@
 # CriptJS - A text encryptor
 
 ![CRIPTJS LOGO](https://i.ibb.co/KqSKs2x/20201225-165901.png)
+
 ![PACKAGE VESION](https://img.shields.io/npm/v/cript.js?color=red&label=CriptJS&style=for-the-badge)
 ![PACKAGE DOWNLOADS](https://img.shields.io/npm/dw/cript.js?color=red&label=Download&style=for-the-badge)
 ![PACKAGE SIZE](https://img.shields.io/bundlephobia/min/cript.js?color=red&label=Size&style=for-the-badge)
