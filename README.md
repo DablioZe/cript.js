@@ -62,8 +62,50 @@ criptjs.decrypt(myCode, (err, result) => {
 // result: "Hello World!"
 ```
 
+#### You can generate a new key using `criptjs.genKey(length, types, callback)`
+
+```javascript
+const criptjs = require("cript.js");
+
+criptjs.genKey(30, ["letters", "numbers"], (err, result) => {
+    // This command generates a random result.
+    if (err) throw err;
+    console.log(result);
+})
+// result: "9T6z9y3e0A3M1M9i2i7e6y6k3C4U2o"
+```
+
+#### If you want only numbers to be generated, type `criptjs.genKey(length, "numbers", callback)`
+
+```javascript
+const criptjs = require("cript.js");
+
+criptjs.genKey(30, "numbers", (err, result) => {
+    // This command generates a random result.
+    if (err) throw err;
+    console.log(result);
+})
+// result: "564281673592645812365987546825"
+```
+
+#### You can also do this with `criptjs.genKey(length, "letters", callback)`
+
+```javascript
+const criptjs = require("cript.js");
+
+criptjs.genKey(30, "letters", (err, result) => {
+    // This command generates a random result.
+    if (err) throw err;
+    console.log(result);
+})
+// result: "BgsacHGdtAdSemNjkLdfTtYsdCiopS"
+```
+
 > ***Note***: We recommend that you use very specific keys that only you know, do not share it with anyone. your data is safe, it will only be revealed if you use the right key! 
 
 ### if you find an error or bug please report it at [CriptJS/Issues](https://github.com/DablioZe/cript.js/issues)
 
 _i hope you enjoy :D_
+
+
+
