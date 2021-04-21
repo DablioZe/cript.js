@@ -1,111 +1,54 @@
-# CriptJS - A text encryptor
+# SecureDB - Database
 
-![CRIPTJS LOGO](https://i.ibb.co/KqSKs2x/20201225-165901.png)
+SecureDB is a fast, encrypted, simple and easy to use database package for simple projects with local JSON storage.
 
-![PACKAGE VESION](https://img.shields.io/npm/v/cript.js?color=red&label=CriptJS&style=for-the-badge)
-![PACKAGE DOWNLOADS](https://img.shields.io/npm/dw/cript.js?color=red&label=Download&style=for-the-badge)
-![PACKAGE SIZE](https://img.shields.io/bundlephobia/min/cript.js?color=red&label=Size&style=for-the-badge)
-![PACKAGE LICENSE](https://img.shields.io/npm/l/cript.js?color=red&style=for-the-badge)
+![PACKAGE VESION](https://img.shields.io/npm/v/secure-db?color=red&label=CriptJS&style=for-the-badge) ![PACKAGE DOWNLOADS](https://img.shields.io/npm/dw/secure-db?color=red&label=Download&style=for-the-badge) ![PACKAGE SIZE](https://img.shields.io/snyk/vulnerabilities/npm/secure-db?color=red&style=for-the-badge) ![PACKAGE LICENSE](https://img.shields.io/npm/l/secure-db?color=red&style=for-the-badge)
 
-## Installation
-
+### Installation
 ```
-$ npm install cript.js
+$ npm install secure-db
 ```
-
-## How to use
-
-It's very simple:
-
-_To encrypt a text use: `criptjs.encrypt(text, callback);`_
-
-> ***Note***: You need to set the key before starting encryption or decryption: `criptjs.setKey("key")`
 
 ```javascript
-const criptjs = require("cript.js");
-
-criptjs.setKey("my key");
-
-criptjs.encrypt("Hello World!", (err, result) => {
-    if (err) throw err;
-    console.log(result);
-});
-// result: "µÞ×ÔÄè×É"
+const { Database } = require('secure-db');
+const db = new Database('my-database');
+// ES6
+import { Database } from 'secure-db';
+const db = new Database('my-database');
 ```
+### Features
+ \- 1.3.0^
+##### Safe Data
+This package is 100% secure because it has a ket encryption feature [cript.js](). The data is stored in JSON format so its handling becomes faster and more perfomatic. There is no need to run a server to use the database because its storage is saved locally.
 
-### If you change the key the result will also change.
+##### Separate Databases
+It is possible to create several databases separated by folders and files, all with individual security. All databases created can have a "child database" which is a space within a database separated by file and can be accessed individually.
+
+##### Individual Security Keys
+All saved data is initially stored with encryption. Each database has its security key that is used to encrypt the data, if it is changed, the saved data is lost forever or until the key is renconstructed correctly.
+
+##### Disable Encryption
+It is possible t disable the encryption of the databases `new Database('your-database', false)`. ___If you disable encryption, your data will lose security and it will be possible to change your data through the file itself___.
+
+##### Need Help? Check out: 
+- ##### Documentation: [SecureDB/docs]()
+- ##### Support: [Discord/SecureDB]()
+- ##### OpenSource: [SecureDB/OS]()
+
+### Example
 
 ```javascript
-const criptjs = require("cript.js");
+const db = require('secure-db');
 
-criptjs.setKey("my other key");
-
-criptjs.encrypt("Hello World!", (err, result) => {
-    if (err) throw err;
-    console.log(result);
-});
-// result: "µÞÛã¼á×É"
+// Saves data to the database
+db.set('Felipe', { age: 30 }); // Felipe: { age: 30 }
+// Pushing an element to an array
+db.push('Felipe.books', 'Harry Potter'); // Felipe: { books: ['Harry Potter'] }
+// Add in a number
+db.sum('Felipe.age', 3); // Felipe: { age: 33 }
+// Subtract a number
+db.sub('Felipe.age', 2); // Felipe: { age: 31 }
+// Returns saved data
+db.get('Felipe'); // Felipe: { age: 31, books: ['Harry Potter'] }
+db.get('Felipe.books'); // Felipe: { books: ['Harry Potter'] }
 ```
-
-_To decrypt a code use: `criptjs.decrypt(text, callback);`_
-
-```javascript
-const criptjs = require("cript.js");
-const myCode = "µÞ×ÔÄè×É";
-
-criptjs.setKey("my key");
-
-criptjs.decrypt(myCode, (err, result) => {
-    if (err) throw err;
-    console.log(result);
-});
-// result: "Hello World!"
-```
-
-#### You can generate a new key using `criptjs.genKey(length, types, callback)`
-
-```javascript
-const criptjs = require("cript.js");
-
-criptjs.genKey(30, ["letters", "numbers"], (err, result) => {
-    // This command generates a random result.
-    if (err) throw err;
-    console.log(result);
-})
-// result: "9T6z9y3e0A3M1M9i2i7e6y6k3C4U2o"
-```
-
-#### If you want only numbers to be generated, type `criptjs.genKey(length, "numbers", callback)`
-
-```javascript
-const criptjs = require("cript.js");
-
-criptjs.genKey(30, "numbers", (err, result) => {
-    // This command generates a random result.
-    if (err) throw err;
-    console.log(result);
-})
-// result: "564281673592645812365987546825"
-```
-
-#### You can also do this with `criptjs.genKey(length, "letters", callback)`
-
-```javascript
-const criptjs = require("cript.js");
-
-criptjs.genKey(30, "letters", (err, result) => {
-    // This command generates a random result.
-    if (err) throw err;
-    console.log(result);
-})
-// result: "BgsacHGdtAdSemNjkLdfTtYsdCiopS"
-```
-
-> ***Note***: We recommend that you use very specific keys that only you know, do not share it with anyone. your data is safe, it will only be revealed if you use the right key! 
-
-### if you find an error or bug please report it at [CriptJS/Issues](https://github.com/DablioZe/cript.js/issues)
-
-_i hope you enjoy :D_
-
-
-
